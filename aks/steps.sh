@@ -12,5 +12,5 @@ export SERVICE_PRINCIPAL_SECRET=$(echo $SERVICE_PRINCIPAL_JSON | jq -r '.passwor
 ssh-keygen -t rsa -b 4096 -N $SECRET -C "ahmedgrati1999@gmail.com" -q -f  ~/.ssh/id_rsa
 export SSH_KEY=$(cat ~/.ssh/id_rsa.pub)
 
-taa -var location="North Central US" -var environment="dev" -var kubernetes_version="1.22" -var service_principal_client_id=$SERVICE_PRINCIPAL -var servic
+taa -var location="North Central US" -var kubernetes_version="1.22" -var service_principal_client_id=$SERVICE_PRINCIPAL -var servic
 e_principal_client_secret=$SERVICE_PRINCIPAL_SECRET -var ssh_public_key=$SSH_KEY
