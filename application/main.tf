@@ -3,6 +3,7 @@ locals {
   microservices_ns            = "microservices"
   databases_ns                = "databases"
   frontend_ns                 = "frontend"
+  flagger_ns                  = "flagger"
 }
 
 module "nginx-ingress-controller" {
@@ -34,4 +35,9 @@ module "frontend" {
   depends_on = [
     module.microservices
   ]
+}
+
+module "flagger" {
+  source     = "./flagger"
+  flagger_ns = local.flagger_ns
 }
