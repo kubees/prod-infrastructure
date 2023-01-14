@@ -22,12 +22,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
   kubernetes_version              = var.kubernetes_version
   api_server_authorized_ip_ranges = ["0.0.0.0/0"]
 
-  addon_profile {
-    oms_agent {
-      enabled = true
-    }
-  }
-
   linux_profile {
     admin_username = "azureuser"
     ssh_key {
@@ -52,6 +46,10 @@ resource "azurerm_kubernetes_cluster" "aks" {
   network_profile {
     network_plugin = "kubenet"
     network_policy = "calico"
+  }
+
+  oms_agent {
+    log_analytics_workspace_id = azurerm_log_analytics_workspace.logs.id
   }
 
   role_based_access_control_enabled = true
