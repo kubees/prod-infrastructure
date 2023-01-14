@@ -1,5 +1,5 @@
 locals {
-  nginx_ingress_controller_ns = "ingress-nginx"
+  nginx_ingress_controller_ns = "nginx-ingress"
   microservices_ns            = "microservices"
   databases_ns                = "databases"
   frontend_ns                 = "frontend"
@@ -9,6 +9,10 @@ locals {
 module "nginx-ingress-controller" {
   source                      = "./nginx-ingress-controller"
   nginx_ingress_controller_ns = local.nginx_ingress_controller_ns
+  depends_on = [
+    module.frontend,
+    module.microservices
+  ]
 }
 
 module "redis" {
@@ -40,4 +44,8 @@ module "frontend" {
 module "flagger" {
   source     = "./flagger"
   flagger_ns = local.flagger_ns
+  depends_on = [
+    module.frontend,
+    module.microservices
+  ]
 }
