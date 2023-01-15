@@ -1,7 +1,7 @@
 resource "kubernetes_secret" "elastic_secret" {
   metadata {
     name      = "elastic-secret"
-    namespace = var.databases_ns
+    namespace = var.monitoring_ns
   }
 
   data = {
@@ -10,6 +10,6 @@ resource "kubernetes_secret" "elastic_secret" {
 
   type = "kubernetes.io/opaque"
   depends_on = [
-    kubernetes_namespace.databases
+    kubernetes_namespace.monitoring
   ]
 }

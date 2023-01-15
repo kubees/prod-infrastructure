@@ -1,7 +1,3 @@
-variable "monitoring_ns" {
-  type = string
-}
-
 variable "elastic_user" {
   type = string
 }
