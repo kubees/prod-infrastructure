@@ -5,4 +5,5 @@ resource "helm_release" "nginx-ingress-controller" {
   namespace         = var.nginx_ingress_controller_ns
   create_namespace  = true
   dependency_update = true
+
 }

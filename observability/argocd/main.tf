@@ -1,7 +1,7 @@
-resource "helm_release" "frontend_release" {
+resource "helm_release" "argocd_release" {
   name              = "argocd"
   chart             = "argocd-helm-chart"
-  repository        = "https://gitlab.com/api/v4/projects/42390521/packages/helm/api/stable/charts"
+  repository        = "https://gitlab.com/api/v4/projects/42390521/packages/helm/stable"
   namespace         = var.argocd_ns
   create_namespace  = true
   dependency_update = true

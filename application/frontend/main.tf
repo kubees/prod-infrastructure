@@ -10,4 +10,30 @@ resource "helm_release" "frontend_release" {
     name  = "deployment.container.digest"
     value = var.frontend_image_digest
   }
+
+  set {
+    name  = "deployment.container.memoryLimit"
+    value = "100Mi"
+  }
+  set {
+    name  = "deployment.container.memoryRequest"
+    value = "75Mi"
+  }
+  set {
+    name  = "deployment.container.cpuRequest"
+    value = "10m"
+  }
+
+  set {
+    name  = "deployment.container.cpuRequest"
+    value = "10m"
+  }
+  set {
+    name  = "deployment.replicas"
+    value = "3"
+  }
+  set {
+    name  = "service.type"
+    value = "LoadBalancer"
+  }
 }

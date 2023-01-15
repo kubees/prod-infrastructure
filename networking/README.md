@@ -23,7 +23,8 @@ This module is responsible for the deployment for all the core components and re
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_location"></a> [location](#input\_location) | Azure location to use | `string` | `"France Central"` | no |
+| <a name="input_location"></a> [location](#input\_location) | Azure location to use | `string` | `"East US"` | no |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Name of Resource Group Name | `string` | n/a | yes |
 ## Outputs
 
 | Name | Description |

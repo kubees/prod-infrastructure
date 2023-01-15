@@ -14,11 +14,6 @@ resource "helm_release" "videos_microservice_release" {
   }
 
   set {
-    name  = "microservices-umbrella-chart.monitoring.enabled"
-    value = false
-  }
-
-  set {
     name  = "microservices-umbrella-chart.deployment.container.memoryLimit"
     value = "100Mi"
   }
@@ -31,15 +26,15 @@ resource "helm_release" "videos_microservice_release" {
     value = "10m"
   }
 
+  set {
+    name  = "microservices-umbrella-chart.deployment.container.cpuRequest"
+    value = "10m"
+  }
+
 
   set {
     name  = "microservices-umbrella-chart.deployment.replicas"
     value = "3"
-  }
-
-  set {
-    name  = "microservices-umbrella-chart.deployment.container.cpuRequest"
-    value = "10m"
   }
   depends_on = [
     kubernetes_secret.videos_redis_secret
@@ -77,10 +72,9 @@ resource "helm_release" "playlist_microservice_release" {
     name  = "microservices-umbrella-chart.deployment.container.digest"
     value = var.playlist_ms_digest
   }
-
   set {
-    name  = "microservices-umbrella-chart.monitoring.enabled"
-    value = false
+    name  = "service.type"
+    value = "LoadBalancer"
   }
 
   set {

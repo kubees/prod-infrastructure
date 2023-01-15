@@ -1,16 +1,4 @@
-variable "redis_password" {
-  type = string
-}
-
-variable "videos_ms_digest" {
-  type = string
-}
-
-variable "playlist_ms_digest" {
-  type = string
-}
-
-variable "frontend_image_digest" {
+variable "monitoring_ns" {
   type = string
 }
 
@@ -27,5 +15,9 @@ variable "grafana_username" {
 }
 
 variable "grafana_password" {
+  type = string
+}
+
+variable "jaeger_ns" {
   type = string
 }
