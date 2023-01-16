@@ -73,7 +73,7 @@ resource "helm_release" "playlist_microservice_release" {
     value = var.playlist_ms_digest
   }
   set {
-    name  = "service.type"
+    name  = "microservices-umbrella-chart.service.type"
     value = "LoadBalancer"
   }
 
